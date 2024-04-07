@@ -3,6 +3,7 @@ import type { TCountryDataDict } from '@/types/countries'
 export const COUNTRIES: TCountryDataDict = {
   ES: {
     name: 'Spain',
+    currency: 'EUR',
     expenses: {
       taxes: [
         { name: 'Income', value: 25 },
@@ -20,6 +21,7 @@ export const COUNTRIES: TCountryDataDict = {
   },
   RO: {
     name: 'Romania',
+    currency: 'RON',
     expenses: {
       taxes: [{ name: 'Income', value: 10 }],
       other: [

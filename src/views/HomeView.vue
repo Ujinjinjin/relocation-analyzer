@@ -19,15 +19,17 @@ const countrySelectionOptions: TSelectionOption[] = Object.entries(COUNTRIES).ma
   }
 )
 
-const selectedCountry: Ref<TSelectionOption> = ref(countrySelectionOptions[0])
 const yearlyIncome: Ref<number> = ref(50000)
+const selectedCountry: Ref<TSelectionOption> = ref(countrySelectionOptions[0])
+const countryCurrencySymbol = ref('€')
+// const countryCurrencySymbol = computed(() => useCurrencySymbol(COUNTRIES[selectedCountry.value.key as TCountryCode].currency))
 
 const countryData = computed(() =>
   useCountryData(selectedCountry.value.key as TCountryCode, yearlyIncome.value)
 )
 const chartOptions = computed(() => usePieChart(countryData.value))
 
-const tableHeaders = ['Budget segment', 'Amount (€)']
+const tableHeaders = computed(() => ['Budget segment', `Amount (${countryCurrencySymbol.value})`])
 const tableRows = computed(() => countryData.value.map((item) => [item.name, `${item.value}`]))
 </script>
 
@@ -35,7 +37,7 @@ const tableRows = computed(() => countryData.value.map((item) => [item.name, `${
   <div class="flex mx-16 mt-16">
     <div class="w-64 m-auto space-y-4 max-h-screen">
       <RaSelect label="Country" :options="countrySelectionOptions" v-model="selectedCountry" />
-      <RaInput label="Income" v-model="yearlyIncome" />
+      <RaInput label="Income" v-model="yearlyIncome" :symbol="countryCurrencySymbol" />
     </div>
     <div class="w-full m-auto mx-8 flex flex-col justify-center align-middle space-x-2">
       <RaChart :options="chartOptions" class="h-96 w-4/5" />
