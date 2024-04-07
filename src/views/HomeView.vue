@@ -8,6 +8,7 @@ import RaSelect from '@/components/RaSelect.vue'
 import { COUNTRIES } from '@/data/countries'
 import type { TSelectionOption } from '@/components/RaSelect.model'
 import type { TCountryCode } from '@/types/countries'
+import RaTable from '@/components/RaTable.vue'
 
 const countrySelectionOptions: TSelectionOption[] = Object.entries(COUNTRIES).map(
   ([key, value]) => {
@@ -25,12 +26,20 @@ const countryData = computed(() =>
   useCountryData(selectedCountry.value.key as TCountryCode, yearlyIncome.value)
 )
 const chartOptions = computed(() => usePieChart(countryData.value))
+
+const tableHeaders = ['Budget segment', 'Amount (€)']
+const tableRows = computed(() => countryData.value.map((item) => [item.name, `${item.value}`]))
 </script>
 
 <template>
-  <div class="w-64">
-    <RaSelect label="Country" :options="countrySelectionOptions" v-model="selectedCountry" />
-    <RaInput label="Income" v-model="yearlyIncome" />
+  <div class="flex mx-16 mt-16">
+    <div class="w-64 m-auto space-y-4 max-h-screen">
+      <RaSelect label="Country" :options="countrySelectionOptions" v-model="selectedCountry" />
+      <RaInput label="Income" v-model="yearlyIncome" />
+    </div>
+    <div class="w-full m-auto mx-8 flex flex-col justify-center align-middle space-x-2">
+      <RaChart :options="chartOptions" class="h-96 w-4/5" />
+      <RaTable class="w-4/5 self-center" :headers="tableHeaders" :rows="tableRows" />
+    </div>
   </div>
-  <RaChart :options="chartOptions" />
 </template>
