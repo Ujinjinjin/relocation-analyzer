@@ -7,7 +7,7 @@ defineProps<TRaTableProps>()
 <template>
   <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 sticky top-0">
         <tr>
           <th v-for="(item, index) of headers" scope="col" class="px-6 py-3" :key="index">
             {{ item }}
