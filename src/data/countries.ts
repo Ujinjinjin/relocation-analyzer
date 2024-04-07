@@ -10,10 +10,11 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Social', value: 6.45 }
       ],
       other: [
-        { name: 'Rent', value: 1000, period: 'month' },
+        { name: 'Rent', value: 850, period: 'month' },
         { name: 'Gas', value: 30, period: 'month' },
         { name: 'Water', value: 40, period: 'month' },
         { name: 'Electricity', value: 80, period: 'month' },
+        { name: 'Internet', value: 80, period: 'month' },
         { name: 'Other', value: 3000, period: 'year' },
         { name: 'Living', value: 500, period: 'month' }
       ]
@@ -25,7 +26,7 @@ export const COUNTRIES: TCountryDataDict = {
     expenses: {
       taxes: [{ name: 'Income', value: 10 }],
       other: [
-        { name: 'Rent', value: 500, period: 'month' },
+        { name: 'Rent', value: 350, period: 'month' },
         { name: 'Living', value: 500, period: 'month' }
       ]
     }

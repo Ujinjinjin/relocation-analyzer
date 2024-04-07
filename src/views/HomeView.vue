@@ -35,13 +35,13 @@ const tableRows = computed(() => countryData.value.map((item) => [item.name, `${
 
 <template>
   <div class="flex mx-16 mt-16">
-    <div class="w-64 m-auto space-y-4 max-h-screen">
+    <div class="w-64 space-y-4">
       <RaSelect label="Country" :options="countrySelectionOptions" v-model="selectedCountry" />
       <RaInput label="Income" v-model="yearlyIncome" :symbol="countryCurrencySymbol" />
     </div>
     <div class="w-full m-auto mx-8 flex flex-col justify-center align-middle space-x-2">
       <RaChart :options="chartOptions" class="h-96 w-4/5" />
-      <RaTable class="w-4/5 self-center" :headers="tableHeaders" :rows="tableRows" />
+      <RaTable class="w-4/5 max-h-[36rem] self-center" :headers="tableHeaders" :rows="tableRows" />
     </div>
   </div>
 </template>
