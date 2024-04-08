@@ -12,5 +12,11 @@ export function useCurrencySymbol(code: TCurrencyCode): TCurrencySymbol {
       return '₽'
     case 'RON':
       return 'lei'
+    case 'HUF':
+      return 'Ft'
+    case 'PLN':
+      return 'zł'
+    case 'KZT':
+      return '₸'
   }
 }

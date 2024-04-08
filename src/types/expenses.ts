@@ -10,6 +10,9 @@ export type TPeriodicExpense = TExpense & {
 }
 
 export type TLivingExpenses = {
-  taxes: TExpense[]
+  taxes: {
+    personal: TExpense[]
+    corporate: TExpense[]
+  }
   other: TPeriodicExpense[]
 }
