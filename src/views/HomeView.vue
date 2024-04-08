@@ -40,8 +40,8 @@ const tableRows = computed(() => countryData.value.map((item) => [item.name, `${
       <RaInput label="Income" v-model="yearlyIncome" :symbol="countryCurrencySymbol" />
     </div>
     <div class="w-full m-auto mx-8 flex flex-col space-x-2">
-      <RaChart :options="chartOptions" class="h-96 w-4/5" />
-      <RaTable class="w-4/5 max-h-[36rem] self-center" :headers="tableHeaders" :rows="tableRows" />
+      <RaChart :options="chartOptions" class="h-96 w-3/4 self-center" />
+      <RaTable class="w-3/4 max-h-[36rem] self-center" :headers="tableHeaders" :rows="tableRows" />
     </div>
   </div>
 </template>

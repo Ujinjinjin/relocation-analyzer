@@ -18,5 +18,9 @@ export function useCurrencySymbol(code: TCurrencyCode): TCurrencySymbol {
       return 'zł'
     case 'KZT':
       return '₸'
+    case 'CZK':
+      return 'Kč'
+    case 'BGN':
+      return 'лв'
   }
 }

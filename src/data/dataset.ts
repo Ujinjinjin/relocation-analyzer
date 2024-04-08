@@ -26,41 +26,21 @@ export const COUNTRIES: TCountryDataDict = {
       ]
     }
   },
-  RO: {
-    name: 'Romania',
-    currency: 'RON',
+  BG: {
+    name: 'Bulgaria',
+    currency: 'BGN',
     expenses: {
       taxes: {
         personal: [
           { name: 'Income', value: 10 },
-          { name: 'Social', value: 25 },
-          { name: 'Health', value: 10 },
+          { name: 'Social', value: 13.8 },
         ],
         corporate: [
-          { name: 'Payroll', value: 6.25 }
+          { name: 'Payroll', value: 20 }
         ]
       },
       other: [
-        { name: 'Rent', value: 350, period: 'month' },
-        { name: 'Living', value: 500, period: 'month' }
-      ]
-    }
-  },
-  HU: {
-    name: 'Hungary',
-    currency: 'HUF',
-    expenses: {
-      taxes: {
-        personal: [
-          { name: 'Income', value: 15 },
-          { name: 'Social', value: 18.5 },
-        ],
-        corporate: [
-          { name: 'Payroll', value: 13 }
-        ]
-      },
-      other: [
-        { name: 'Rent', value: 1000, period: 'month' },
+        { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' }
       ]
     }
@@ -84,21 +64,41 @@ export const COUNTRIES: TCountryDataDict = {
       ]
     }
   },
-  PL: {
-    name: 'Poland',
-    currency: 'PLN',
+  HU: {
+    name: 'Hungary',
+    currency: 'HUF',
     expenses: {
       taxes: {
         personal: [
-          { name: 'Income', value: 32 },
-          { name: 'Social', value: 23.5 },
+          { name: 'Income', value: 15 },
+          { name: 'Social', value: 18.5 },
         ],
         corporate: [
-          { name: 'Payroll', value: 28.5 }
+          { name: 'Payroll', value: 13 }
         ]
       },
       other: [
-        { name: 'Rent', value: 500, period: 'month' },
+        { name: 'Rent', value: 1000, period: 'month' },
+        { name: 'Living', value: 500, period: 'month' }
+      ]
+    }
+  },
+  RO: {
+    name: 'Romania',
+    currency: 'RON',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 10 },
+          { name: 'Social', value: 25 },
+          { name: 'Health', value: 10 },
+        ],
+        corporate: [
+          { name: 'Payroll', value: 6.25 }
+        ]
+      },
+      other: [
+        { name: 'Rent', value: 350, period: 'month' },
         { name: 'Living', value: 500, period: 'month' }
       ]
     }
@@ -121,7 +121,45 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Living', value: 500, period: 'month' }
       ]
     }
-  }
+  },
+  CZ: {
+    name: 'Czech Republic',
+    currency: 'CZK',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 15 },
+          { name: 'Social', value: 11.6 },
+        ],
+        corporate: [
+          { name: 'Payroll', value: 34 }
+        ]
+      },
+      other: [
+        { name: 'Rent', value: 1000, period: 'month' },
+        { name: 'Living', value: 500, period: 'month' }
+      ]
+    }
+  },
+  PL: {
+    name: 'Poland',
+    currency: 'PLN',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 32 },
+          { name: 'Social', value: 23.5 },
+        ],
+        corporate: [
+          { name: 'Payroll', value: 28.5 }
+        ]
+      },
+      other: [
+        { name: 'Rent', value: 500, period: 'month' },
+        { name: 'Living', value: 500, period: 'month' }
+      ]
+    }
+  },
 }
 
 export const SHARED_EXPENSES: TPeriodicExpense[] = [
