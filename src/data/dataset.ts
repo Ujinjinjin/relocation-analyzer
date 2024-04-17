@@ -64,6 +64,25 @@ export const COUNTRIES: TCountryDataDict = {
       ]
     }
   },
+  GE: {
+    name: 'Georgia',
+    currency: 'GEL',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 20 },
+          { name: 'Social', value: 2 },
+        ],
+        corporate: [
+          { name: 'Payroll', value: 2 }
+        ]
+      },
+      other: [
+        { name: 'Rent', value: 500, period: 'month' },
+        { name: 'Living', value: 500, period: 'month' }
+      ]
+    }
+  },
   HU: {
     name: 'Hungary',
     currency: 'HUF',
