@@ -23,7 +23,7 @@ watch(props, () => {
 </script>
 
 <template>
-  <div id="chart-container" ref="chartContainer" class="w-full"></div>
+  <div id="chart-container" ref="chartContainer" />
 </template>
 
 <style scoped></style>

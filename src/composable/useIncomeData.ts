@@ -2,7 +2,7 @@ import type { TCountryCode } from '@/types/countries'
 import type { TChartData } from '@/types/echarts'
 import { COUNTRIES, SHARED_EXPENSES } from '@/data/dataset'
 
-export function useCountryData(code: TCountryCode, yearlyIncome: number): TChartData[] {
+export function useIncomeData(code: TCountryCode, yearlyIncome: number): TChartData[] {
   const countryData = COUNTRIES[code]
   const data: TChartData[] = []
   let remainingAmount = yearlyIncome
