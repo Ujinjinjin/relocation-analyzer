@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { Ref } from 'vue'
 import type { TCountryCode, TCurrencySymbol } from '@/types/countries'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { COUNTRIES } from '@/data/dataset'
 
 export type TConfiguration = {
@@ -17,6 +17,15 @@ export const useConfigStore = defineStore('configuration', () => {
     countryCode: 'ES',
     countries: Object.keys(COUNTRIES).map((key) => key as TCountryCode),
     currencySymbol: '€',
+  })
+
+  const localStorage = window.localStorage.getItem('ra-configuration')
+  if (localStorage) {
+    config.value = JSON.parse(localStorage)
+  }
+
+  watch(config, () => {
+    window.localStorage.setItem('ra-configuration', JSON.stringify(config.value))
   })
 
   function setIncome(income: number): void {

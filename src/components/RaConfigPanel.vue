@@ -15,7 +15,7 @@ const countrySelectionOptions: Ref<TCheckOption[]> = ref(
   Object.entries(COUNTRIES).map(([key, value]) => ({
     key: key,
     value: value.name,
-    checked: true,
+    checked: configStore.config.countries.includes(key as TCountryCode),
   }))
 )
 
@@ -27,7 +27,7 @@ const currentCountryOptions: ComputedRef<TSelectionOption[]> = computed(() => {
 })
 
 const selectedCountry: Ref<TSelectionOption> = ref(
-  currentCountryOptions.value.filter((item) => item.key === configStore.config.countryCode)[0]
+  currentCountryOptions.value.filter((item) => item.key === configStore.config.countryCode)[0] ?? currentCountryOptions.value[0]
 )
 effect(() => {
   configStore.selectCountry(selectedCountry.value.key as TCountryCode)
@@ -44,6 +44,10 @@ function onChangeSelection(options: TCheckOption[]): void {
     .map((item) => item.key as TCountryCode)
 
   configStore.filterCountries(countryCodes)
+
+  if (!countryCodes.includes(selectedCountry.value.key as TCountryCode)) {
+    selectedCountry.value = currentCountryOptions.value[0]
+  }
 }
 </script>
 
