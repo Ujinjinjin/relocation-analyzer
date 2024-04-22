@@ -1,11 +1,15 @@
 import type { TChartData } from '@/types/echarts'
 import { COUNTRIES } from '@/data/dataset'
+import type { TCountryCode } from '@/types/countries'
+import { useConfigStore } from '@/stores/config.store'
 
 export function usePayrollData(yearlyIncome: number): TChartData[] {
+  const configStore = useConfigStore()
   const data: TChartData[] = []
 
-  Object.values(COUNTRIES)
-    .forEach((countryData) => {
+  Object.entries(COUNTRIES)
+    .filter(([countryCode, _]) => configStore.config.countries.includes(countryCode as TCountryCode))
+    .forEach(([_, countryData]) => {
       const payrollCost = countryData.expenses.taxes.corporate
         .map(item => yearlyIncome * item.value / 100)
         .reduce((sum, current) => sum + current, 0)
