@@ -1,7 +1,6 @@
 export type TTabCode =
- | 'income'
- | 'expenses'
- | 'savings'
+ | 'distribution'
+ | 'finances'
  | 'payroll'
 
 export type TPageNavigation = {

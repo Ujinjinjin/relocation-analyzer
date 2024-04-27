@@ -3,7 +3,18 @@ export type TChartData = {
   name: string
 }
 
-export type TChartParams = {
+export type TChartSeries = {
+  name?: string
+  stack?: string
   data: TChartData[]
+}
+
+export type TChartAxis = {
+  labels?: string[]
+}
+
+export type TChartParams = {
+  series: TChartSeries[]
   title?: string
+  xAxis?: TChartAxis
 }
