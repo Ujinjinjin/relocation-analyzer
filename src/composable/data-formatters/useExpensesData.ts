@@ -1,8 +1,8 @@
-import type { TChartData } from '@/types/echarts'
-import { COUNTRIES } from '@/data/dataset'
-import type { TCountryCode } from '@/types/countries'
-import { useConfigStore } from '@/stores/config.store'
 import { useCountryCalculator } from '@/composable/data-formatters/useCountryCalculator'
+import { COUNTRIES } from '@/data/dataset'
+import { useConfigStore } from '@/stores/config.store'
+import type { TCountryCode } from '@/types/countries'
+import type { TChartData } from '@/types/echarts'
 
 export function useExpensesData(yearlyIncome: number): TChartData[] {
   const configStore = useConfigStore()
@@ -10,7 +10,9 @@ export function useExpensesData(yearlyIncome: number): TChartData[] {
   const data: TChartData[] = []
 
   Object.entries(COUNTRIES)
-    .filter(([countryCode, _]) => configStore.config.countries.includes(countryCode as TCountryCode))
+    .filter(([countryCode, _]) =>
+      configStore.config.countries.includes(countryCode as TCountryCode)
+    )
     .forEach(([countryCode, countryData]) => {
       const expenses: TChartData[] = []
       expenses.push(...getTaxes(countryCode as TCountryCode, yearlyIncome))
@@ -20,7 +22,7 @@ export function useExpensesData(yearlyIncome: number): TChartData[] {
 
       data.push({
         name: countryData.name,
-        value: expensesSum,
+        value: expensesSum
       })
     })
 

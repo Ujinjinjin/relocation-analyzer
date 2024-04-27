@@ -29,7 +29,7 @@ export function usePieChart({ series, ...params }: TChartParams): EChartsOption 
       labelLine: {
         show: true
       },
-      data: seriesItem.data,
+      data: seriesItem.data
     }))
   }
 }

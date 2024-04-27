@@ -14,12 +14,12 @@ export const useNavigationStore = defineStore('navigation', () => {
     window.localStorage.setItem('ra-navigation', JSON.stringify(lastTab.value))
   })
 
-  function navigatedTo (tab: TTabCode): void {
+  function navigatedTo(tab: TTabCode): void {
     lastTab.value = tab
   }
 
   return {
     lastTab: lastTab,
-    navigatedTo: navigatedTo,
+    navigatedTo: navigatedTo
   }
 })

@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import RaChart from '@/components/RaChart.vue'
-import { usePieChart } from '@/composable/usePieChart'
 import { computed, type ComputedRef } from 'vue'
-import { useDistributionData } from '@/composable/data-formatters/useDistributionData'
-import type { TCountryCode } from '@/types/countries'
-import RaNavigationTabs from '@/components/RaNavigationTabs.vue'
+import RaChart from '@/components/RaChart.vue'
 import type { TRaNavigationTabNameMap } from '@/components/RaNavigationTabs.model'
+import RaNavigationTabs from '@/components/RaNavigationTabs.vue'
+import RaTable from '@/components/RaTable.vue'
+import { useDistributionData } from '@/composable/data-formatters/useDistributionData'
 import { usePayrollData } from '@/composable/data-formatters/usePayrollData'
 import { useBarChart } from '@/composable/useBarChart'
-import RaConfigSection from '@/views/sections/RaConfigSection.vue'
+import { usePieChart } from '@/composable/usePieChart'
 import { useConfigStore } from '@/stores/config.store'
-import RaFinancesSection from '@/views/sections/RaFinancesSection.vue'
 import { useNavigationStore } from '@/stores/navigation.store'
+import type { TCountryCode } from '@/types/countries'
 import type { TTabCode } from '@/types/navigation'
-import RaTable from '@/components/RaTable.vue'
+import RaConfigSection from '@/views/sections/RaConfigSection.vue'
+import RaFinancesSection from '@/views/sections/RaFinancesSection.vue'
 
 const configStore = useConfigStore()
 const navigationStore = useNavigationStore()
@@ -22,18 +22,23 @@ const incomeData = computed(() =>
   useDistributionData(configStore.config.countryCode as TCountryCode, configStore.config.income)
 )
 const incomeChart = computed(() => usePieChart({ series: [{ data: incomeData.value }] }))
-const incomeTableHeaders = computed(() => ['Budget segment', `Amount (${configStore.config.currencySymbol})`])
+const incomeTableHeaders = computed(() => [
+  'Budget segment',
+  `Amount (${configStore.config.currencySymbol})`
+])
 const incomeTableRows = computed(() => incomeData.value.map((item) => [item.name, `${item.value}`]))
 
 const payrollData = computed(() => usePayrollData(configStore.config.income))
-const payrollChart = computed(() => useBarChart({ series: [{data: payrollData.value}] }))
+const payrollChart = computed(() => useBarChart({ series: [{ data: payrollData.value }] }))
 
 const navigationTabs: TRaNavigationTabNameMap = {
-  'distribution': 'Distribution',
-  'finances': 'Finances',
-  'payroll': 'Payroll Cost'
+  distribution: 'Distribution',
+  finances: 'Finances',
+  payroll: 'Payroll Cost'
 }
-const defaultTab: ComputedRef<TTabCode> = computed(() => navigationStore.lastTab ?? Object.keys(navigationTabs)[0])
+const defaultTab: ComputedRef<TTabCode> = computed(
+  () => navigationStore.lastTab ?? Object.keys(navigationTabs)[0]
+)
 
 function onTabSelected(payload: string): void {
   navigationStore.navigatedTo(payload as TTabCode)
@@ -45,16 +50,25 @@ function onTabSelected(payload: string): void {
     <div class="min-w-64 space-y-4">
       <RaConfigSection />
     </div>
-    <RaNavigationTabs :tabs="navigationTabs" class="w-full" :default-tab="defaultTab" @tabSelected="onTabSelected">
+    <RaNavigationTabs
+      :tabs="navigationTabs"
+      class="w-full"
+      :default-tab="defaultTab"
+      @tabSelected="onTabSelected"
+    >
       <template v-slot:distribution>
         <div class="w-full m-auto flex flex-col space-x-2 items-center">
           <RaChart :options="incomeChart" class="h-96 w-full" />
-          <RaTable class="max-h-[32rem] w-full" :headers="incomeTableHeaders" :rows="incomeTableRows" />
+          <RaTable
+            class="max-h-[32rem] w-full"
+            :headers="incomeTableHeaders"
+            :rows="incomeTableRows"
+          />
         </div>
       </template>
 
       <template v-slot:finances>
-        <RaFinancesSection class="w-full m-auto"/>
+        <RaFinancesSection class="w-full m-auto" />
       </template>
 
       <template v-slot:payroll>

@@ -11,9 +11,7 @@ export const COUNTRIES: TCountryDataDict = {
           { name: 'Income', value: 25 },
           { name: 'Social', value: 6.45 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 32 }
-        ],
+        corporate: [{ name: 'Payroll', value: 32 }]
       },
       other: [
         { name: 'Rent', value: 850, period: 'month' },
@@ -31,18 +29,16 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 10 },
-          { name: 'Social', value: 13.8 },
+          { name: 'Social', value: 13.8 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 20 }
-        ]
+        corporate: [{ name: 'Payroll', value: 20 }]
       },
       other: [
         { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
         { name: 'Apartment Utilities', value: 130, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
-        { name: 'Phone Bill', value: 30, period: 'month' },
+        { name: 'Phone Bill', value: 30, period: 'month' }
       ]
     }
   },
@@ -53,18 +49,16 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 20 },
-          { name: 'Social', value: 3.6 },
+          { name: 'Social', value: 3.6 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 33.8 }
-        ]
+        corporate: [{ name: 'Payroll', value: 33.8 }]
       },
       other: [
         { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
         { name: 'Apartment Utilities', value: 250, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
-        { name: 'Phone Bill', value: 30, period: 'month' },
+        { name: 'Phone Bill', value: 30, period: 'month' }
       ]
     }
   },
@@ -75,18 +69,16 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 20 },
-          { name: 'Social', value: 2 },
+          { name: 'Social', value: 2 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 2 }
-        ]
+        corporate: [{ name: 'Payroll', value: 2 }]
       },
       other: [
         { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
         { name: 'Apartment Utilities', value: 50, period: 'month' },
         { name: 'Internet', value: 50, period: 'month' },
-        { name: 'Gym', value: 50, period: 'month' },
+        { name: 'Gym', value: 50, period: 'month' }
       ]
     }
   },
@@ -97,18 +89,16 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 15 },
-          { name: 'Social', value: 18.5 },
+          { name: 'Social', value: 18.5 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 13 }
-        ]
+        corporate: [{ name: 'Payroll', value: 13 }]
       },
       other: [
         { name: 'Rent', value: 1000, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
         { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
-        { name: 'Phone Bill', value: 45, period: 'month' },
+        { name: 'Phone Bill', value: 45, period: 'month' }
       ]
     }
   },
@@ -120,11 +110,9 @@ export const COUNTRIES: TCountryDataDict = {
         personal: [
           { name: 'Income', value: 10 },
           { name: 'Social', value: 25 },
-          { name: 'Health', value: 10 },
+          { name: 'Health', value: 10 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 6.25 }
-        ]
+        corporate: [{ name: 'Payroll', value: 6.25 }]
       },
       other: [
         { name: 'Rent', value: 350, period: 'month' },
@@ -141,11 +129,9 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 10 },
-          { name: 'Social', value: 12 },
+          { name: 'Social', value: 12 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 18 }
-        ]
+        corporate: [{ name: 'Payroll', value: 18 }]
       },
       other: [
         { name: 'Rent', value: 1000, period: 'month' },
@@ -162,11 +148,9 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 15 },
-          { name: 'Social', value: 11.6 },
+          { name: 'Social', value: 11.6 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 34 }
-        ]
+        corporate: [{ name: 'Payroll', value: 34 }]
       },
       other: [
         { name: 'Rent', value: 1000, period: 'month' },
@@ -183,11 +167,9 @@ export const COUNTRIES: TCountryDataDict = {
       taxes: {
         personal: [
           { name: 'Income', value: 32 },
-          { name: 'Social', value: 23.5 },
+          { name: 'Social', value: 23.5 }
         ],
-        corporate: [
-          { name: 'Payroll', value: 28.5 }
-        ]
+        corporate: [{ name: 'Payroll', value: 28.5 }]
       },
       other: [
         { name: 'Rent', value: 500, period: 'month' },
@@ -196,7 +178,7 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Unknown', value: 350, period: 'month' }
       ]
     }
-  },
+  }
 }
 
 export const SHARED_EXPENSES: TPeriodicExpense[] = [
@@ -204,5 +186,5 @@ export const SHARED_EXPENSES: TPeriodicExpense[] = [
   { name: 'Spotify', value: 18, period: 'month' },
   { name: 'Netflix', value: 12, period: 'month' },
   { name: 'Dev Tools', value: 225, period: 'year' },
-  { name: 'D&D Subscriptions', value: 60, period: 'year' },
+  { name: 'D&D Subscriptions', value: 60, period: 'year' }
 ]

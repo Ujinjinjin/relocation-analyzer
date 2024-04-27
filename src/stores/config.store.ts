@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 import type { Ref } from 'vue'
-import type { TCountryCode, TCurrencySymbol } from '@/types/countries'
 import { ref, watch } from 'vue'
 import { COUNTRIES } from '@/data/dataset'
+import type { TCountryCode, TCurrencySymbol } from '@/types/countries'
 
 export type TConfiguration = {
   income: number
   countryCode: TCountryCode
   countries: TCountryCode[]
-  currencySymbol: TCurrencySymbol,
+  currencySymbol: TCurrencySymbol
 }
 
 export const useConfigStore = defineStore('configuration', () => {
@@ -16,7 +16,7 @@ export const useConfigStore = defineStore('configuration', () => {
     income: 50000,
     countryCode: 'ES',
     countries: Object.keys(COUNTRIES).map((key) => key as TCountryCode),
-    currencySymbol: '€',
+    currencySymbol: '€'
   })
 
   const localStorage = window.localStorage.getItem('ra-configuration')
@@ -31,14 +31,14 @@ export const useConfigStore = defineStore('configuration', () => {
   function setIncome(income: number): void {
     config.value = {
       ...config.value,
-      income: income,
+      income: income
     }
   }
 
   function selectCountry(countryCode: TCountryCode): void {
     config.value = {
       ...config.value,
-      countryCode: countryCode,
+      countryCode: countryCode
     }
 
     // const countryCurrencySymbol = computed(() => useCurrencySymbol(COUNTRIES[selectedCountry.value.key as TCountryCode].currency))
@@ -47,7 +47,7 @@ export const useConfigStore = defineStore('configuration', () => {
   function filterCountries(countries: TCountryCode[]): void {
     config.value = {
       ...config.value,
-      countries: countries,
+      countries: countries
     }
 
     if (!countries.includes(config.value.countryCode)) {
@@ -59,6 +59,6 @@ export const useConfigStore = defineStore('configuration', () => {
     config,
     setIncome,
     selectCountry,
-    filterCountries,
+    filterCountries
   }
 })

@@ -1,6 +1,6 @@
+import { COUNTRIES, SHARED_EXPENSES } from '@/data/dataset'
 import type { TCountryCode } from '@/types/countries'
 import type { TChartData } from '@/types/echarts'
-import { COUNTRIES, SHARED_EXPENSES } from '@/data/dataset'
 
 export function useCountryCalculator() {
   function getTaxes(code: TCountryCode, yearlyIncome: number): TChartData[] {
@@ -30,6 +30,6 @@ export function useCountryCalculator() {
 
   return {
     getTaxes: getTaxes,
-    getExpenses: getExpenses,
+    getExpenses: getExpenses
   }
 }
