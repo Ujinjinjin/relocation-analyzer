@@ -30,7 +30,6 @@ export function useSavingsData(
           currentAmount += topUpAmount
         }
         if (isInterestDate(dateIterator, interestPeriod)) {
-          console.log('debug:useSavingsData:; interest:', (currentAmount * partialInterest) / 100)
           currentAmount += (currentAmount * partialInterest) / 100
         }
 
