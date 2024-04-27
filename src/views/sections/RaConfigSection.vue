@@ -76,6 +76,7 @@ function onChangeSelection(options: TCheckOption[]): void {
     :options="countrySelectionOptions"
     @changeSelection="onChangeSelection"
   />
+  <hr />
   <template v-if="navigationStore.lastTab === 'distribution'">
     <RaSelect label="Country" :options="currentCountryOptions" v-model="selectedCountry" />
   </template>
