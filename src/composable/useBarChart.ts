@@ -1,7 +1,7 @@
 import { type EChartsOption } from 'echarts'
-import type { TChartData } from '@/types/echarts'
+import type { TChartData, TChartParams } from '@/types/echarts'
 
-export function useBarChart(data: TChartData[]): EChartsOption {
+export function useBarChart({ data, ...params }: TChartParams): EChartsOption {
   return {
     color: [
       '#dc2626',
@@ -25,6 +25,11 @@ export function useBarChart(data: TChartData[]): EChartsOption {
     },
     tooltip: {
       trigger: 'item'
+    },
+    title: {
+      show: !!params.title,
+      text: params.title,
+      left: '50%'
     },
     xAxis: {
       type: 'category',

@@ -8,8 +8,12 @@ import { useConfigStore } from '@/stores/config.store'
 import type { TCountryCode } from '@/types/countries'
 import RaCheckboxDropdown from '@/components/RaCheckboxDropdown.vue'
 import type { TCheckOption } from '@/components/RaCheckboxDropdown.model'
+import { useNavigationStore } from '@/stores/navigation.store'
 
 const configStore = useConfigStore()
+const navigationStore = useNavigationStore()
+
+const countrySelectorVisible: ComputedRef<boolean> = computed(() => navigationStore.lastTab === 'income')
 
 const countrySelectionOptions: Ref<TCheckOption[]> = ref(
   Object.entries(COUNTRIES).map(([key, value]) => ({
@@ -52,9 +56,9 @@ function onChangeSelection(options: TCheckOption[]): void {
 </script>
 
 <template>
-  <RaSelect label="Country" :options="currentCountryOptions" v-model="selectedCountry" />
   <RaInput label="Income" v-model="income" :symbol="configStore.config.currencySymbol" />
-  <RaCheckboxDropdown label="Select Countries" :options="countrySelectionOptions" @changeSelection="onChangeSelection" />
+  <RaCheckboxDropdown label="Enabled Countries" :options="countrySelectionOptions" @changeSelection="onChangeSelection" />
+  <RaSelect v-if="countrySelectorVisible" label="Country" :options="currentCountryOptions" v-model="selectedCountry" />
 </template>
 
 <style scoped>
