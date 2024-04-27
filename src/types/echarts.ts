@@ -1,20 +1,27 @@
-export type TChartData = {
+export interface IChartData {
   value: number
+}
+
+export interface ICategoryChartData extends IChartData {
   name: string
 }
 
-export type TChartSeries = {
+export interface ITimeChartData extends IChartData {
+  date: Date
+}
+
+export type TChartSeries<T extends IChartData> = {
   name?: string
   stack?: string
-  data: TChartData[]
+  data: T[]
 }
 
 export type TChartAxis = {
   labels?: string[]
 }
 
-export type TChartParams = {
-  series: TChartSeries[]
+export type TChartParams<T extends IChartData> = {
+  series: TChartSeries<T>[]
   title?: string
   xAxis?: TChartAxis
 }

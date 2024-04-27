@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as echarts from 'echarts'
+import { nanoid } from 'nanoid'
 import { onMounted, type Ref, ref, watch } from 'vue'
 import type { TRaChartProps } from '@/components/RaChart.model'
 
@@ -7,6 +8,7 @@ const props = defineProps<TRaChartProps>()
 
 const chartContainer: Ref<HTMLElement | undefined> = ref()
 const chart: Ref<echarts.ECharts | undefined> = ref()
+const chartId: Ref<string> = ref(`chart-container-${nanoid(8)}`)
 
 onMounted(() => {
   if (!chartContainer.value) {
@@ -23,7 +25,5 @@ watch(props, () => {
 </script>
 
 <template>
-  <div id="chart-container" ref="chartContainer" />
+  <div :id="chartId" ref="chartContainer" />
 </template>
-
-<style scoped></style>

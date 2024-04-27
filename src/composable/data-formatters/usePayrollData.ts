@@ -1,11 +1,11 @@
 import { COUNTRIES } from '@/data/dataset'
 import { useConfigStore } from '@/stores/config.store'
 import type { TCountryCode } from '@/types/countries'
-import type { TChartData } from '@/types/echarts'
+import type { ICategoryChartData } from '@/types/echarts'
 
-export function usePayrollData(yearlyIncome: number): TChartData[] {
+export function usePayrollData(yearlyIncome: number): ICategoryChartData[] {
   const configStore = useConfigStore()
-  const data: TChartData[] = []
+  const data: ICategoryChartData[] = []
 
   Object.entries(COUNTRIES)
     .filter(([countryCode, _]) =>

@@ -13,10 +13,6 @@ import type { TCountryCode } from '@/types/countries'
 const configStore = useConfigStore()
 const navigationStore = useNavigationStore()
 
-const countrySelectorVisible: ComputedRef<boolean> = computed(
-  () => navigationStore.lastTab === 'distribution'
-)
-
 const countrySelectionOptions: Ref<TCheckOption[]> = ref(
   Object.entries(COUNTRIES).map(([key, value]) => ({
     key: key,
@@ -45,6 +41,21 @@ effect(() => {
   configStore.setIncome(income.value)
 })
 
+const savingsInterest: Ref<number> = ref(configStore.config.savings.interest)
+effect(() => {
+  configStore.setSavingsInterest(savingsInterest.value)
+})
+
+const savingsYears: Ref<number> = ref(configStore.config.savings.years)
+effect(() => {
+  configStore.setSavingsYears(savingsYears.value)
+})
+
+const savingsInitialAmount: Ref<number> = ref(configStore.config.savings.initialAmount)
+effect(() => {
+  configStore.setSavingsInitialAmount(savingsInitialAmount.value)
+})
+
 function onChangeSelection(options: TCheckOption[]): void {
   const countryCodes = options
     .filter((item) => item.checked)
@@ -65,12 +76,18 @@ function onChangeSelection(options: TCheckOption[]): void {
     :options="countrySelectionOptions"
     @changeSelection="onChangeSelection"
   />
-  <RaSelect
-    v-if="countrySelectorVisible"
-    label="Country"
-    :options="currentCountryOptions"
-    v-model="selectedCountry"
-  />
+  <template v-if="navigationStore.lastTab === 'distribution'">
+    <RaSelect label="Country" :options="currentCountryOptions" v-model="selectedCountry" />
+  </template>
+  <template v-if="navigationStore.lastTab === 'finances'">
+    <RaInput
+      label="Initial Amount"
+      v-model="savingsInitialAmount"
+      :symbol="configStore.config.currencySymbol"
+    />
+    <RaInput label="Interest" v-model="savingsInterest" symbol="%" />
+    <RaInput label="Years" v-model="savingsYears" />
+  </template>
 </template>
 
 <style scoped></style>

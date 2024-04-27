@@ -2,19 +2,19 @@ import { useCountryCalculator } from '@/composable/data-formatters/useCountryCal
 import { COUNTRIES } from '@/data/dataset'
 import { useConfigStore } from '@/stores/config.store'
 import type { TCountryCode } from '@/types/countries'
-import type { TChartData } from '@/types/echarts'
+import type { ICategoryChartData } from '@/types/echarts'
 
-export function useExpensesData(yearlyIncome: number): TChartData[] {
+export function useExpensesData(yearlyIncome: number): ICategoryChartData[] {
   const configStore = useConfigStore()
   const { getTaxes, getExpenses } = useCountryCalculator()
-  const data: TChartData[] = []
+  const data: ICategoryChartData[] = []
 
   Object.entries(COUNTRIES)
     .filter(([countryCode, _]) =>
       configStore.config.countries.includes(countryCode as TCountryCode)
     )
     .forEach(([countryCode, countryData]) => {
-      const expenses: TChartData[] = []
+      const expenses: ICategoryChartData[] = []
       expenses.push(...getTaxes(countryCode as TCountryCode, yearlyIncome))
       expenses.push(...getExpenses(countryCode as TCountryCode))
 

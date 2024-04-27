@@ -3,9 +3,16 @@ import type { Ref } from 'vue'
 import { ref, watch } from 'vue'
 import { COUNTRIES } from '@/data/dataset'
 import type { TCountryCode, TCurrencySymbol } from '@/types/countries'
+import type { TPeriod } from '@/types/expenses'
 
 export type TConfiguration = {
   income: number
+  savings: {
+    initialAmount: number
+    interest: number
+    interestPeriod: TPeriod
+    years: number
+  }
   countryCode: TCountryCode
   countries: TCountryCode[]
   currencySymbol: TCurrencySymbol
@@ -14,6 +21,12 @@ export type TConfiguration = {
 export const useConfigStore = defineStore('configuration', () => {
   const config: Ref<TConfiguration> = ref({
     income: 50000,
+    savings: {
+      initialAmount: 10000,
+      interest: 3,
+      interestPeriod: 'day',
+      years: 3
+    },
     countryCode: 'ES',
     countries: Object.keys(COUNTRIES).map((key) => key as TCountryCode),
     currencySymbol: '€'
@@ -32,6 +45,36 @@ export const useConfigStore = defineStore('configuration', () => {
     config.value = {
       ...config.value,
       income: income
+    }
+  }
+
+  function setSavingsInterest(interest: number): void {
+    config.value = {
+      ...config.value,
+      savings: {
+        ...config.value.savings,
+        interest: interest
+      }
+    }
+  }
+
+  function setSavingsYears(years: number): void {
+    config.value = {
+      ...config.value,
+      savings: {
+        ...config.value.savings,
+        years: years
+      }
+    }
+  }
+
+  function setSavingsInitialAmount(amount: number): void {
+    config.value = {
+      ...config.value,
+      savings: {
+        ...config.value.savings,
+        initialAmount: amount
+      }
     }
   }
 
@@ -58,6 +101,9 @@ export const useConfigStore = defineStore('configuration', () => {
   return {
     config,
     setIncome,
+    setSavingsInterest,
+    setSavingsYears,
+    setSavingsInitialAmount,
     selectCountry,
     filterCountries
   }

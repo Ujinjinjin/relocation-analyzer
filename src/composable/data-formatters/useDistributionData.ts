@@ -1,11 +1,14 @@
 import { useCountryCalculator } from '@/composable/data-formatters/useCountryCalculator'
 import type { TCountryCode } from '@/types/countries'
-import type { TChartData } from '@/types/echarts'
+import type { ICategoryChartData } from '@/types/echarts'
 
-export function useDistributionData(code: TCountryCode, yearlyIncome: number): TChartData[] {
+export function useDistributionData(
+  code: TCountryCode,
+  yearlyIncome: number
+): ICategoryChartData[] {
   const { getTaxes, getExpenses } = useCountryCalculator()
 
-  const data: TChartData[] = []
+  const data: ICategoryChartData[] = []
   let remainingAmount = yearlyIncome
 
   data.push(...getTaxes(code, yearlyIncome))

@@ -2,8 +2,10 @@
 import { computed } from 'vue'
 import RaChart from '@/components/RaChart.vue'
 import { useExpensesData } from '@/composable/data-formatters/useExpensesData'
+import { useSavingsData } from '@/composable/data-formatters/useSavingsData'
 import { useSurplusData } from '@/composable/data-formatters/useSurplusData'
 import { useBarChart } from '@/composable/useBarChart'
+import { useLineChart } from '@/composable/useLineChart'
 import { useConfigStore } from '@/stores/config.store'
 
 const configStore = useConfigStore()
@@ -12,6 +14,7 @@ const surplusData = computed(() => useSurplusData(configStore.config.income))
 const expensesData = computed(() => useExpensesData(configStore.config.income))
 const ratioBarChart = computed(() =>
   useBarChart({
+    title: 'Ratio',
     series: [
       {
         name: 'Expenses',
@@ -26,8 +29,24 @@ const ratioBarChart = computed(() =>
     ],
     xAxis: {
       labels: surplusData.value.map((item) => item.name)
-    },
-    title: 'Ratio'
+    }
+  })
+)
+
+const savingsData = computed(() => {
+  return useSavingsData(
+    configStore.config.countries,
+    configStore.config.income,
+    configStore.config.savings.initialAmount,
+    configStore.config.savings.interest,
+    'day',
+    configStore.config.savings.years
+  )
+})
+const savingsLineChart = computed(() =>
+  useLineChart({
+    title: 'Savings',
+    series: savingsData.value
   })
 )
 </script>
@@ -35,6 +54,7 @@ const ratioBarChart = computed(() =>
 <template>
   <div class="flex flex-col space-x-2 items-center py-4 space-y-4">
     <RaChart :options="ratioBarChart" class="h-96 w-full" />
+    <RaChart :options="savingsLineChart" class="h-96 w-full" />
   </div>
 </template>
 

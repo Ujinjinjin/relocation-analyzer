@@ -56,7 +56,7 @@ export const COUNTRIES: TCountryDataDict = {
       other: [
         { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
-        { name: 'Apartment Utilities', value: 250, period: 'month' },
+        { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
         { name: 'Phone Bill', value: 30, period: 'month' }
       ]

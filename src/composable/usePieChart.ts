@@ -1,7 +1,10 @@
 import { type EChartsOption } from 'echarts'
-import type { TChartParams } from '@/types/echarts'
+import type { ICategoryChartData, TChartParams } from '@/types/echarts'
 
-export function usePieChart({ series, ...params }: TChartParams): EChartsOption {
+export function usePieChart({
+  series,
+  ...params
+}: TChartParams<ICategoryChartData>): EChartsOption {
   return {
     legend: {
       top: 'center',

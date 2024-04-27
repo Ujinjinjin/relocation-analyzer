@@ -3,10 +3,10 @@ export type TExpense = {
   name: string
 }
 
-export type TExpensePeriod = 'year' | 'month'
+export type TPeriod = 'year' | 'month' | 'day'
 
 export type TPeriodicExpense = TExpense & {
-  period: TExpensePeriod
+  period: TPeriod
 }
 
 export type TLivingExpenses = {

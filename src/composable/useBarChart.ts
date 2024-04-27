@@ -1,7 +1,11 @@
 import { type EChartsOption } from 'echarts'
-import type { TChartData, TChartParams } from '@/types/echarts'
+import type { ICategoryChartData, TChartParams } from '@/types/echarts'
 
-export function useBarChart({ series, xAxis, title }: TChartParams): EChartsOption {
+export function useBarChart({
+  series,
+  xAxis,
+  title
+}: TChartParams<ICategoryChartData>): EChartsOption {
   return {
     legend: {
       top: 'center',
@@ -28,7 +32,7 @@ export function useBarChart({ series, xAxis, title }: TChartParams): EChartsOpti
     },
     series: series.map((seriesItem) => ({
       name: seriesItem.name,
-      data: seriesItem.data.map((item: TChartData) => item.value),
+      data: seriesItem.data.map((item: ICategoryChartData) => item.value),
       type: 'bar',
       stack: seriesItem.stack
     }))
