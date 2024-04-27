@@ -14,7 +14,7 @@ const configStore = useConfigStore()
 const navigationStore = useNavigationStore()
 
 const countrySelectorVisible: ComputedRef<boolean> = computed(
-  () => navigationStore.lastTab === 'income'
+  () => navigationStore.lastTab === 'distribution'
 )
 
 const countrySelectionOptions: Ref<TCheckOption[]> = ref(
