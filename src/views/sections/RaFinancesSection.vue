@@ -54,7 +54,7 @@ const savingsLineChart = computed(() =>
 <template>
   <div class="flex flex-col space-x-2 items-center py-4 space-y-4">
     <RaChart :options="ratioBarChart" class="h-96 w-full" />
-    <RaChart :options="savingsLineChart" class="h-96 w-full" />
+    <RaChart :options="savingsLineChart" :refresh="true" class="h-96 w-full" />
   </div>
 </template>
 

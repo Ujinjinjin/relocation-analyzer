@@ -20,7 +20,10 @@ onMounted(() => {
 })
 
 watch(props, () => {
-  chart && chart.setOption(props.options)
+  if (chart) {
+    props.refresh && chart.clear()
+    chart.setOption(props.options)
+  }
 })
 </script>
 
