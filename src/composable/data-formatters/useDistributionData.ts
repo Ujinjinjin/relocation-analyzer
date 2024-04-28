@@ -17,7 +17,7 @@ export function useDistributionData(
   data.forEach((item) => (remainingAmount -= item.value))
 
   data.push({
-    name: 'Savings',
+    name: 'Surplus',
     value: remainingAmount
   })
 
