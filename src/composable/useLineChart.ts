@@ -9,8 +9,17 @@ export function useLineChart({ series, title }: TChartParams<ITimeChartData>): E
       right: '0%',
       orient: 'vertical'
     },
+    grid: {
+      right: '10%'
+    },
     tooltip: {
-      trigger: 'axis'
+      trigger: 'axis',
+      axisPointer: {
+        type: 'line',
+      },
+      valueFormatter: (value) => {
+        return Math.ceil(parseFloat(value?.toString() ?? '0')).toLocaleString()
+      }
     },
     title: {
       show: !!title,

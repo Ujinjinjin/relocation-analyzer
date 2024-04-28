@@ -7,20 +7,20 @@ import type { TRaChartProps } from '@/components/RaChart.model'
 const props = defineProps<TRaChartProps>()
 
 const chartContainer: Ref<HTMLElement | undefined> = ref()
-const chart: Ref<echarts.ECharts | undefined> = ref()
-const chartId: Ref<string> = ref(`chart-container-${nanoid(8)}`)
+const chartId: string = `chart-container-${nanoid(8)}`
+let chart: echarts.ECharts | undefined = undefined
 
 onMounted(() => {
   if (!chartContainer.value) {
     return
   }
 
-  chart.value = echarts.init(chartContainer.value, null, { renderer: 'svg' })
-  chart.value.setOption(props.options)
+  chart = echarts.init(chartContainer.value, null, { renderer: 'svg' })
+  chart.setOption(props.options)
 })
 
 watch(props, () => {
-  chart.value && chart.value.setOption(props.options)
+  chart && chart.setOption(props.options)
 })
 </script>
 
