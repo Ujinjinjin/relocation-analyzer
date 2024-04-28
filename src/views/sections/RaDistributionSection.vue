@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import RaChart from '@/components/RaChart.vue'
 import RaTable from '@/components/RaTable.vue'
-import { computed } from 'vue'
 import { useDistributionData } from '@/composable/data-formatters/useDistributionData'
-import type { TCountryCode } from '@/types/countries'
 import { usePieChart } from '@/composable/usePieChart'
 import { useConfigStore } from '@/stores/config.store'
+import type { TCountryCode } from '@/types/countries'
 
 const configStore = useConfigStore()
 
@@ -23,10 +23,6 @@ const incomeTableRows = computed(() => incomeData.value.map((item) => [item.name
 <template>
   <div class="flex flex-col space-x-2 items-center">
     <RaChart :options="incomeChart" class="h-96 w-full" />
-    <RaTable
-      class="max-h-[32rem] w-full"
-      :headers="incomeTableHeaders"
-      :rows="incomeTableRows"
-    />
+    <RaTable class="max-h-[32rem] w-full" :headers="incomeTableHeaders" :rows="incomeTableRows" />
   </div>
 </template>

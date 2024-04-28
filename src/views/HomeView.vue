@@ -5,8 +5,8 @@ import RaNavigationTabs from '@/components/RaNavigationTabs.vue'
 import { useNavigationStore } from '@/stores/navigation.store'
 import type { TTabCode } from '@/types/navigation'
 import RaConfigSection from '@/views/sections/RaConfigSection.vue'
-import RaFinancesSection from '@/views/sections/RaFinancesSection.vue'
 import RaDistributionSection from '@/views/sections/RaDistributionSection.vue'
+import RaFinancesSection from '@/views/sections/RaFinancesSection.vue'
 import RaPayrollSection from '@/views/sections/RaPayrollSection.vue'
 
 const navigationStore = useNavigationStore()

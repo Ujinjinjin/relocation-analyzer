@@ -18,7 +18,7 @@ export function useBarChart({
     tooltip: {
       trigger: 'axis',
       axisPointer: {
-        type: 'shadow',
+        type: 'shadow'
       },
       valueFormatter: (value) => {
         return Math.ceil(parseFloat(value?.toString() ?? '0')).toLocaleString()

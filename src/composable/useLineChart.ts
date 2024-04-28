@@ -15,7 +15,7 @@ export function useLineChart({ series, title }: TChartParams<ITimeChartData>): E
     tooltip: {
       trigger: 'axis',
       axisPointer: {
-        type: 'line',
+        type: 'line'
       },
       valueFormatter: (value) => {
         return Math.ceil(parseFloat(value?.toString() ?? '0')).toLocaleString()

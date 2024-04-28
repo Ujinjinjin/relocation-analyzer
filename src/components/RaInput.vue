@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { nanoid } from 'nanoid'
 import { type ModelRef, ref, type Ref } from 'vue'
 import type { TRaInputProps } from '@/components/RaInput.model'
-import { nanoid } from 'nanoid'
 
 defineProps<TRaInputProps>()
 const valueModel: ModelRef<string | undefined> = defineModel()
