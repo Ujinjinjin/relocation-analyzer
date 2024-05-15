@@ -21,7 +21,7 @@ export function useSavingsData(
       const countryExpenses = useDistributionData(countryCode as TCountryCode, yearlyIncome)
       const surplus = countryExpenses[countryExpenses.length - 1].value
       const topUpAmount = surplus / 12
-      let currentAmount = initialAmount
+      let currentAmount = initialAmount - countryData.expenses.relocation.value
 
       let dateIterator = getToday()
       const endDate = addYears(dateIterator, years)

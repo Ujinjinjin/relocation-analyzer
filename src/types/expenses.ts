@@ -15,4 +15,5 @@ export type TLivingExpenses = {
     corporate: TExpense[]
   }
   other: TPeriodicExpense[]
+  relocation: TExpense
 }

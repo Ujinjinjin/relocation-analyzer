@@ -1,6 +1,8 @@
 import type { TCountryDataDict } from '@/types/countries'
 import type { TPeriodicExpense } from '@/types/expenses'
 
+const averageRelocationCost = 4000
+
 export const COUNTRIES: TCountryDataDict = {
   ES: {
     name: 'Spain',
@@ -19,7 +21,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 80, period: 'month' },
         { name: 'Gym', value: 75, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: 0 },
     }
   },
   BG: {
@@ -39,7 +42,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 130, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
         { name: 'Phone Bill', value: 30, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   EE: {
@@ -59,7 +63,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
         { name: 'Phone Bill', value: 30, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   GE: {
@@ -79,7 +84,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 50, period: 'month' },
         { name: 'Internet', value: 50, period: 'month' },
         { name: 'Gym', value: 50, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   HU: {
@@ -99,7 +105,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
         { name: 'Phone Bill', value: 45, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   RO: {
@@ -119,7 +126,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Living', value: 500, period: 'month' },
 
         { name: 'Unknown', value: 350, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   KZ: {
@@ -138,7 +146,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Living', value: 500, period: 'month' },
 
         { name: 'Unknown', value: 350, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   CZ: {
@@ -157,7 +166,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Living', value: 500, period: 'month' },
 
         { name: 'Unknown', value: 350, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   },
   PL: {
@@ -176,7 +186,8 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Living', value: 500, period: 'month' },
 
         { name: 'Unknown', value: 350, period: 'month' }
-      ]
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
     }
   }
 }
