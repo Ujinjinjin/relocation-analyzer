@@ -1,6 +1,6 @@
 import type { TLivingExpenses } from '@/types/expenses'
 
-export type TCountryCode = 'ES' | 'RO' | 'HU' | 'EE' | 'PL' | 'KZ' | 'CZ' | 'BG' | 'GE'
+export type TCountryCode = 'ES' | 'RO' | 'HU' | 'EE' | 'PL' | 'KZ' | 'CZ' | 'BG' | 'GE' | 'RU' | 'XK'
 export type TCurrencySymbol = '€' | '$' | '₾' | '₽' | 'lei' | 'Ft' | 'zł' | '₸' | 'Kč' | 'лв'
 export type TCurrencyCode =
   | 'EUR'

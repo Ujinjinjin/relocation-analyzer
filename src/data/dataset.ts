@@ -25,6 +25,27 @@ export const COUNTRIES: TCountryDataDict = {
       relocation: { name: 'Relocation', value: 0 },
     }
   },
+  XK: {
+    name: 'Kosovo',
+    currency: 'EUR',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 10 },
+          { name: 'Social', value: 5 }
+        ],
+        corporate: [{ name: 'Payroll', value: 5 }]
+      },
+      other: [
+        { name: 'Rent', value: 400, period: 'month' },
+        { name: 'Living', value: 400, period: 'month' },
+        { name: 'Apartment Utilities', value: 100, period: 'month' },
+        { name: 'Internet', value: 20, period: 'month' },
+        { name: 'Phone Bill', value: 20, period: 'month' }
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
+    }
+  },
   BG: {
     name: 'Bulgaria',
     currency: 'BGN',
@@ -40,27 +61,6 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Rent', value: 500, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
         { name: 'Apartment Utilities', value: 130, period: 'month' },
-        { name: 'Internet', value: 25, period: 'month' },
-        { name: 'Phone Bill', value: 30, period: 'month' }
-      ],
-      relocation: { name: 'Relocation', value: averageRelocationCost },
-    }
-  },
-  EE: {
-    name: 'Estonia',
-    currency: 'EUR',
-    expenses: {
-      taxes: {
-        personal: [
-          { name: 'Income', value: 20 },
-          { name: 'Social', value: 3.6 }
-        ],
-        corporate: [{ name: 'Payroll', value: 33.8 }]
-      },
-      other: [
-        { name: 'Rent', value: 500, period: 'month' },
-        { name: 'Living', value: 500, period: 'month' },
-        { name: 'Apartment Utilities', value: 150, period: 'month' },
         { name: 'Internet', value: 25, period: 'month' },
         { name: 'Phone Bill', value: 30, period: 'month' }
       ],
@@ -84,6 +84,45 @@ export const COUNTRIES: TCountryDataDict = {
         { name: 'Apartment Utilities', value: 50, period: 'month' },
         { name: 'Internet', value: 50, period: 'month' },
         { name: 'Gym', value: 50, period: 'month' }
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
+    }
+  },
+  RU: {
+    name: 'Russia',
+    currency: 'RUB',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 15 }
+        ],
+        corporate: [{ name: 'Payroll', value: 33.8 }]
+      },
+      other: [
+        { name: 'Living', value: 500, period: 'month' },
+        { name: 'Apartment Utilities', value: 150, period: 'month' },
+        { name: 'Internet', value: 50, period: 'month' },
+      ],
+      relocation: { name: 'Relocation', value: averageRelocationCost },
+    }
+  },
+  EE: {
+    name: 'Estonia',
+    currency: 'EUR',
+    expenses: {
+      taxes: {
+        personal: [
+          { name: 'Income', value: 20 },
+          { name: 'Social', value: 3.6 }
+        ],
+        corporate: [{ name: 'Payroll', value: 33.8 }]
+      },
+      other: [
+        { name: 'Rent', value: 500, period: 'month' },
+        { name: 'Living', value: 500, period: 'month' },
+        { name: 'Apartment Utilities', value: 150, period: 'month' },
+        { name: 'Internet', value: 25, period: 'month' },
+        { name: 'Phone Bill', value: 30, period: 'month' }
       ],
       relocation: { name: 'Relocation', value: averageRelocationCost },
     }
@@ -142,7 +181,7 @@ export const COUNTRIES: TCountryDataDict = {
         corporate: [{ name: 'Payroll', value: 18 }]
       },
       other: [
-        { name: 'Rent', value: 1000, period: 'month' },
+        { name: 'Rent', value: 600, period: 'month' },
         { name: 'Living', value: 500, period: 'month' },
 
         { name: 'Unknown', value: 350, period: 'month' }
