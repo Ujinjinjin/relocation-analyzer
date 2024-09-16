@@ -37,6 +37,7 @@ const savingsData = computed(() => {
   return useSavingsData(
     configStore.config.countries,
     configStore.config.income,
+    configStore.config.incomeGain,
     configStore.config.savings.initialAmount,
     configStore.config.savings.interest,
     'day',

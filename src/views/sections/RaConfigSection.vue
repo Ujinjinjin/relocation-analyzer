@@ -41,6 +41,11 @@ effect(() => {
   configStore.setIncome(income.value)
 })
 
+const incomeGain: Ref<number> = ref(configStore.config.incomeGain)
+effect(() => {
+  configStore.setIncomeGain(incomeGain.value)
+})
+
 const savingsInterest: Ref<number> = ref(configStore.config.savings.interest)
 effect(() => {
   configStore.setSavingsInterest(savingsInterest.value)
@@ -71,6 +76,7 @@ function onChangeSelection(options: TCheckOption[]): void {
 
 <template>
   <RaInput label="Income" v-model="income" :symbol="configStore.config.currencySymbol" />
+  <RaInput label="Income Gain" v-model="incomeGain" symbol="%" />
   <RaCheckboxDropdown
     label="Enabled Countries"
     :options="countrySelectionOptions"

@@ -7,7 +7,8 @@ import type { TPeriod } from '@/types/expenses'
 export function useSavingsData(
   countries: TCountryCode[],
   yearlyIncome: number,
-  initialAmount: number,
+  yearlyIncomeGain: number,
+  initiallySaved: number,
   interest: number,
   interestPeriod: TPeriod,
   years: number
@@ -18,14 +19,18 @@ export function useSavingsData(
     .filter(([countryCode, _]) => countries.includes(countryCode as TCountryCode))
     .map(([countryCode, countryData]) => {
       const data: ITimeChartData[] = []
-      const countryExpenses = useDistributionData(countryCode as TCountryCode, yearlyIncome)
-      const surplus = countryExpenses[countryExpenses.length - 1].value
-      const topUpAmount = surplus / 12
-      let currentAmount = initialAmount - countryData.expenses.relocation.value
+      let currentYearlyIncome = yearlyIncome
+      let topUpAmount = useTopUpAmount(countryCode, currentYearlyIncome)
+      let currentAmount = initiallySaved - countryData.expenses.relocation.value
 
       let dateIterator = getToday()
       const endDate = addYears(dateIterator, years)
       while (dateIterator < endDate) {
+        if (isPromotionDate(dateIterator)) {
+          currentYearlyIncome += (currentYearlyIncome * yearlyIncomeGain) / 100
+          topUpAmount = useTopUpAmount(countryCode, currentYearlyIncome)
+        }
+
         if (isTopUpDate(dateIterator)) {
           currentAmount += topUpAmount
         }
@@ -50,6 +55,11 @@ export function useSavingsData(
     })
 }
 
+const useTopUpAmount = (countryCode: TCountryCode, yearlyIncome: number): number => {
+  const countryExpenses = useDistributionData(countryCode as TCountryCode, yearlyIncome)
+  const surplus = countryExpenses[countryExpenses.length - 1].value
+  return surplus / 12
+}
 const isTopUpDate = (date: Date): boolean => {
   return date.getUTCDate() === 1
 }
@@ -68,6 +78,9 @@ const getPartialInterest = (interest: number, interestPeriod: TPeriod): number =
     case 'day':
       return interest / 365
   }
+}
+const isPromotionDate = (date: Date): boolean => {
+  return date.getMonth() === 1 && date.getUTCDate() === 1
 }
 const getToday = (): Date => {
   const now = new Date()

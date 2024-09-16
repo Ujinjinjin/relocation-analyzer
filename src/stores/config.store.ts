@@ -7,6 +7,7 @@ import type { TPeriod } from '@/types/expenses'
 
 export type TConfiguration = {
   income: number
+  incomeGain: number
   savings: {
     initialAmount: number
     interest: number
@@ -21,6 +22,7 @@ export type TConfiguration = {
 export const useConfigStore = defineStore('configuration', () => {
   const config: Ref<TConfiguration> = ref({
     income: 50000,
+    incomeGain: 10,
     savings: {
       initialAmount: 10000,
       interest: 3,
@@ -45,6 +47,13 @@ export const useConfigStore = defineStore('configuration', () => {
     config.value = {
       ...config.value,
       income: income
+    }
+  }
+
+  function setIncomeGain(incomeGain: number): void {
+    config.value = {
+      ...config.value,
+      incomeGain: incomeGain
     }
   }
 
@@ -101,6 +110,7 @@ export const useConfigStore = defineStore('configuration', () => {
   return {
     config,
     setIncome,
+    setIncomeGain,
     setSavingsInterest,
     setSavingsYears,
     setSavingsInitialAmount,
