@@ -55,7 +55,7 @@ export function useSavingsData(
     })
 }
 
-const useTopUpAmount = (countryCode: TCountryCode, yearlyIncome: number): number => {
+const useTopUpAmount = (countryCode: TCountryCode | string, yearlyIncome: number): number => {
   const countryExpenses = useDistributionData(countryCode as TCountryCode, yearlyIncome)
   const surplus = countryExpenses[countryExpenses.length - 1].value
   return surplus / 12
